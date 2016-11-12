@@ -1,0 +1,21 @@
+#N canvas 358 260 450 300 10;
+#X obj 115 17 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 115 37 metro 1000;
+#X obj 114 268 dac~;
+#X obj 333 74 r sto;
+#X obj 333 96 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 71 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 114 73 stutter stut 39.8107 12.0226 23.9883 4.62381;
+#X obj 344 38 noise~ 440;
+#X obj 229 233 lop~ 600;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;

@@ -1,0 +1,13 @@
+#N canvas 551 109 416 299 10;
+#X obj 147 12 inlet;
+#X obj 147 37 route bang;
+#X obj 177 129 openpanel;
+#X obj 214 61 unpack s;
+#X obj 177 153 s \$1-filer;
+#X obj 177 95 receive \$1-obang;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 5 0 2 0;

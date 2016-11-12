@@ -1,0 +1,125 @@
+#N canvas 120 89 1034 687 10;
+#X obj 95 113 context :X 9 :Z 28 :a ' # 1 | # -2 | # 2 | # -4 | # -3
+| # 3 | # -2 | # 4 | ' :d 2 :e 9 :f 1 :n ' ex1 ' :x 1 3 6 8 9 :ID 1
+;
+#X obj 177 202 context :X 9 :Z 28 :a ' # 2 | # 2 | # 2 | # 8 | # 7
+| # 6 | # 5 | # 4 | ' :d 2 :e 9 :f 1 :n ' ex1 ' :x 4 5 6 7 8 :ID 2
+;
+#X obj 247 113 context :X 9 :Z 15 :a ' # 9 | # 8 | # 10 | # 7 | # 12
+| # 8 | # 5 | # 5 | ' :d 1 :e 9 :f 1 :n ' ex1 ' :x 1 2 4 6 :ID 3;
+#X msg 561 91 \; c-all stop;
+#X obj 813 56 receive ex1-;
+#X obj 813 81 glock~;
+#X obj 812 106 dac~;
+#X obj 856 81 scaler blues major db 6;
+#X obj 561 45 bng 40 250 50 0 empty empty STOP! 7 20 0 10 -262144 -1
+-1;
+#X obj 560 311 ctxfiles/textbox ex01q;
+#N canvas 65 89 1301 687 questions 0;
+#X obj 10 11 vradio 15 1 0 5 \$0-nop \$0-nopp empty 0 -8 0 10 -262144
+-1 -1 4;
+#X text 416 56 Is this what Context sounds like?;
+#X text 31 40 How do I make / delete connections?;
+#X text 416 41 How are the messages being sent?;
+#X text 31 11 What am I supposed to do here?;
+#X text 32 56 What do the inlets do?;
+#X text 32 71 What do the outlets do?;
+#X text 417 11 Where is the melody coming from?;
+#X text 417 26 What is the # symbol for?;
+#X text 416 70 Can I change the duration of the melody?;
+#X obj 110 352 outlet;
+#X text 32 25 How do I get it to play?;
+#X obj 482 310 inlet;
+#X msg 521 382 0;
+#X obj 482 446 pack f f;
+#X obj 482 354 t b f b;
+#X obj 395 11 vradio 15 1 0 5 \$0-nop \$0-nopp empty 0 -8 0 10 -262144
+-1 -1 9;
+#X obj 395 274 + 5;
+#X obj 501 409 * 385;
+#X msg 482 470 coords 0 -1 1 1 385 100 \$1 \$2 0;
+#X obj 482 492 iemguts/sendcanvas;
+#X msg 482 382 2;
+#X obj 88 390 sel 1;
+#X obj 88 563 iemguts/sendcanvas 1;
+#X msg 88 437 obj 97 329 context :X 9 :Z 15 :a ' # 11 | # 12 | # 13
+| # 11 | # 12 | # 13 | # 11 | # 12 | ' :c 2 :d 1 :e 9 :f 1 :n ' ex1
+' :x 1 2 4 5 7 8 :ID 4 \, obj 242 328 context :X 9 :Z 14 :a ' # 7 |
+# 6 | # 5 | # 6 | # 7 | # 8 | # 7 | # 6 | ' :c 2 :d 1 :e 9 :f 1 :n
+' ex1 ' :x 1 2 3 4 5 6 :ID 5 \, obj 386 329 context :Z 17 :a ' # 4
+| # 3 | # 2 | # 3 | ' :c 2 :d 0.5 :e 5 :f 1 :n ' ex1 ' :x 1 2 3 :ID
+6 \, obj 90 438 context :X 9 :Z 15 :a ' # 2 | # 3 | # 1 | # -4 | #
+0 | # 1 | # -1 | # -6 | ' :c 2 :d 1 :e 9 :f 1 :n ' ex1 ' :x 1 3 5 7
+:ID 7 \, loadbang;
+#X msg 97 412 -1;
+#X obj 482 332 + 1;
+#X connect 0 0 10 0;
+#X connect 12 0 26 0;
+#X connect 13 0 14 0;
+#X connect 14 0 19 0;
+#X connect 15 0 21 0;
+#X connect 15 1 18 0;
+#X connect 15 2 13 0;
+#X connect 16 0 17 0;
+#X connect 17 0 10 0;
+#X connect 18 0 14 1;
+#X connect 19 0 20 0;
+#X connect 21 0 14 0;
+#X connect 22 0 24 0;
+#X connect 22 0 25 0;
+#X connect 24 0 23 0;
+#X connect 25 0 22 1;
+#X connect 26 0 22 0;
+#X connect 26 0 15 0;
+#X coords 0 -1 1 1 385 100 2 385 0;
+#X restore 560 200 pd questions;
+#X obj 764 171 cnv 15 180 25 empty empty QUESTIONS 20 12 0 20 -16662
+-4034 0;
+#X obj 583 145 cnv 15 362 20 empty empty empty 20 12 0 14 -4032 -66577
+0;
+#N canvas 559 468 450 300 progress 0;
+#X obj 100 100 bng 20 250 50 0 empty label What about the bass?
+30 10 0 10 -262144 -1 -1;
+#X msg 100 56 space sym;
+#X obj 100 160 f;
+#X obj 100 182 + 1;
+#X obj 79 219 outlet;
+#X obj 161 204 sel 1;
+#X msg 161 226 \; label label What about the bass?;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+#X connect 3 0 5 0;
+#X connect 5 0 6 0;
+#X coords 0 -1 1 1 20 20 2 100 100;
+#X restore 560 145 pd progress;
+#X obj 560 171 hradio 25 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 97 329 context :X 9 :Z 15 :a ' # 11 | # 12 | # 13 | # 11 | #
+12 | # 13 | # 11 | # 12 | ' :c 2 :d 1 :e 9 :f 1 :n ' ex1 ' :x 1 2 4
+5 7 8 :ID 4;
+#X obj 242 328 context :X 9 :Z 14 :a ' # 7 | # 6 | # 5 | # 6 | # 7
+| # 8 | # 7 | # 6 | ' :c 2 :d 1 :e 9 :f 1 :n ' ex1 ' :x 1 2 3 4 5 6
+:ID 5;
+#X obj 386 329 context :Z 17 :a ' # 4 | # 3 | # 2 | # 3 | ' :c 2 :d
+0.5 :e 5 :f 1 :n ' ex1 ' :x 1 2 3 :ID 6;
+#X obj 90 438 context :X 9 :Z 15 :a ' # 2 | # 3 | # 1 | # -4 | # 0
+| # 1 | # -1 | # -6 | ' :c 2 :d 1 :e 9 :f 1 :n ' ex1 ' :x 1 3 5 7 :ID
+7;
+#X obj 267 417 context :X 17 :Z 22 :a ' # -8 | ' :c 13 :d 2 :e 1 :f
+1 :n ' ex1 ' :x 2 3 5 7 9 12 14 15 :ID 8;
+#X obj 258 519 context :Z 22 :a ' # 8 | ' :b ' # -5 | # 0 | # 2 | '
+:c 13 :d 0.5 :e 1 :f 3 :h 2 :n ' ex1 ' :R 63.36 :x 1 :y 1 2 3 :ID 9
+;
+#X obj 341 521 context :Z 22 :a ' # -9 | ' :b ' # -6 | # -4 | # 1 |
+' :c 13 :d 0.5 :e 1 :f 3 :h 2 :n ' ex1 ' :R 63.36 :x 1 :y 1 2 3 :ID
+10;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 8 0 3 0;
+#X connect 10 0 9 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X coords 0 687 1 686 385 100 0;

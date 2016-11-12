@@ -1,0 +1,79 @@
+#N canvas 474 211 747 552 10;
+#X obj 67 225 f-env bass 100 6 10.4713 7 49 0 4 1 0 82;
+#N canvas 699 264 450 398 bass 0;
+#X obj 205 262 outlet~;
+#X obj 206 49 f-env bass-pitch 43.6516 55 1.58489 4 6 75 362 1 1 0
+;
+#X obj 206 20 receive bass-;
+#X obj 205 236 osc~;
+#X text 49 300 I'm trying to think of a way in which two or more envelopes
+can be grouped into one parameter. It would be really sweet if the
+single message that Context is sending could alter both filters at
+once.;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X restore 260 196 pd bass;
+#X obj 61 49 context :H 57 :X 17 :Y 6 :Z 22 :a ' d (~ * 100) | ' :d
+2 :i 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 :n bass :x 1 2 3 4 5 6 7 8 9
+10 11 12 14 15 16 17 :ID 3 6 obj -35 -93 list split 1 11 obj -1 -65
+ols \$1 inlet outlet-x outlet-y mouse settings cutsom 9 obj 361 -103
+presets \$1 :x :y :d :m 112 obj 0 27 content :H 6 :x2 0.002 :y1 0.000933333
+:y2 0.0019 0 0 0 0 0.482761 0.551727 0.620693 0.689659 0.689659 0.689659
+0.620693 0.620693 0.620693 0.58621 0.551727 0.551727 0.482761 0.46552
+0.448278 0.431037 0.413795 0.275864 0.275864 0.206898 0.137932 0.137932
+0.0689659 0 -0.0689659 -0.103449 -0.137932 -0.172415 -0.206898 -0.275864
+-0.275864 -0.34483 -0.34483 -0.413795 -0.413795 -0.413795 -0.413795
+-0.413795 -0.482761 -0.482761 -0.482761 -0.482761 -0.482761 -0.482761
+-0.482761 -0.482761 -0.482761 -0.482761 -0.482761 -0.482761 -0.482761
+-0.482761 -0.482761 -0.482761 -0.482761 -0.482761 -0.482761 -0.482761
+-0.413795 -0.413795 -0.413795 -0.275864 -0.241381 -0.206898 -0.137932
+-0.103449 -0.0689659 0 0.0689659 0.0689659 0.206898 0.206898 0.275864
+0.34483 0.34483 0.413795 0.413795 0.413795 0.459773 0.50575 0.551727
+0.620693 0.689659 0.689659 0.689659 0.758625 0.827591 0.862074 0.896557
+0.896557 0.896557 0.896557 0.896557 0.862074 0.827591 0 4 obj 0 -20
+mover 5 connect 0 0 1 0 5 connect 0 1 2 1 5 connect 0 2 2 2 5 connect
+0 3 2 3 5 connect 0 4 2 4 5 connect 1 1 2 0;
+#X obj 68 363 cyclone/tanh~;
+#X obj 68 433 dac~;
+#X text 278 48 Here's another example. The tilde sign takes a snapshot
+from the embedded content array. It is then calibrated and sent to
+the envelope as before. So here you can shape the envelope in the array.
+Unfortunately \, doing so will currently stop the Context because you're
+click-holding. I'll think of a way of fixing this soon...;
+#X text 272 137 (Note that if you still have the bold font \, the tilde
+object ~ may look exactly the same as a dash -. This is a major inconvenience.
+The symbol in the above message box is a tilde.);
+#X obj 68 396 freeverb~;
+#X msg -41 417 roomsize \$1;
+#X msg -41 462 damping \$1;
+#X msg -41 506 width \$1;
+#X msg -41 550 wet \$1;
+#X msg -41 594 dry \$1;
+#X obj -29 571 hsl 60 18 0 1 0 1 empty empty dry 2 9 1 12 -225271 -1
+-1 3000 0;
+#X obj -29 527 hsl 60 18 0 1 0 1 empty empty wet 2 9 1 12 -225271 -1
+-1 1000 0;
+#X obj -29 483 hsl 60 18 0 1 0 1 empty empty width 2 9 1 12 -262131
+-1 -1 5700 0;
+#X obj -29 439 hsl 60 18 0 2 0 1 empty empty damping 2 9 1 12 -261689
+-1 -1 5900 0;
+#X obj -29 394 hsl 60 18 0.11 1.1 0 1 empty empty roomsize 2 9 1 12
+-261689 -1 -1 4400 0;
+#X text 308 197 <--- One more envelope in here for pitch...;
+#X connect 0 0 3 0;
+#X connect 1 0 0 2;
+#X connect 3 0 7 0;
+#X connect 3 0 7 1;
+#X connect 7 0 4 0;
+#X connect 7 1 4 1;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 7 0;
+#X connect 12 0 7 0;
+#X connect 13 0 12 0;
+#X connect 14 0 11 0;
+#X connect 15 0 10 0;
+#X connect 16 0 9 0;
+#X connect 17 0 8 0;

@@ -1,0 +1,76 @@
+#N canvas 214 129 1276 687 12;
+#X floatatom 117 19 5 0 0 0 - - -, f 5;
+#X obj 351 632 dac~;
+#X obj 310 174 context :Z 8 :a ' # = & x- (?7) & y- (?7) & r (?100
+- 50) 2000 | # = | ' :d 2 :e 2 :h 1 :i 0 0 -6 -2 11 :j 2 16 0 :n '
+cz ' :p -1 :R 63.36 :x 1 3 4 5 :y 1 2 :ID 1;
+#X obj 117 47 cz-synth cz 54 4 1 4 37 89 20 -29 1;
+#X obj 395 220 context :X 9 :Z 12 :a ' # = | ' :d 1 :e 1 :h 1 :i 0
+-14 -13 0 -11 0 -10 0 0 :j 3 4 5 :n ' ks ' :p -1 :P 1 :x 2 3 5 7 :y
+1 2 3 :ID 2;
+#X obj 876 190 ks2 ks 36 5.01187 0 71 0 39 0 91 0 39.8107 0 4.16869
+0 53 54 0 90;
+#X obj 395 285 context :X 9 :Z 12 :a ' # = | ' :d 1 :e 1 :i -11 -6
+-13 -14 -4 -14 -3 0 1 :n ' ks ' :x 1 3 4 6 9 :ID 3;
+#X obj 393 353 context :X 9 :Z 12 :a ' # = | ' :d 1 :e 1 :i -11 0 -13
+-11 15 -11 0 0 1 :n ' ks ' :x 1 3 4 5 6 9 :ID 4;
+#X obj 393 424 context :X 9 :Z 12 :a ' # = | ' :d 1 :e 1 :i -11 0 -13
+-11 15 -7 0 0 1 :j 0 13 0 :n ' ks ' :x 1 3 4 5 6 9 :ID 5;
+#X msg 498 52 context :X 9 :Z 12 :a ' # = | ' :d 2 :e 1 :i -4 0 -6
+-4 0 -4 0 0 0 :n ' ks ' :x 1 3 4 6;
+#X obj 325 257 context :M 1 :a ' # = | # = | ' :b ' # 13 | ' :d 0.5
+:e 1 :f 5 :h 1 :i 0 -14 0 0 18 :n ' ks ' :p -1 :z 0 :R 63.36 :x 1 2
+3 4 :ID 6;
+#X obj 268 392 context :a ' # = | ' :d 0.5 :e 1 :i 0 -2 -6 0 0 :n '
+cz ' :x 2 3 :ID 7;
+#X obj 279 317 context :d 1.5 :h 1 :j 7 9 0 :p -1 :R 63.36 :y 1 2 :ID
+8;
+#X obj 278 472 context :a ' # = | # = | ' :d 0.5 :e 1 :i -2 0 -6 0
+0 :n ' cz ' :x 1 3 :ID 9;
+#X floatatom 359 125 5 0 0 0 - - -, f 5;
+#X obj 658 368 context :a ' # = | # = | ' :d 1.5 :e 1 :h 1 :i 0 -6
+-2 0 15 :j 12 0 0 :n ' bass ' :p -1 :D 2 :E 1 :R 63.36 :x 2 3 :ID 10
+;
+#X obj 674 290 context :M 1 :a ' | ' :b ' -- bass- o (?100) | ' :e
+3 :f 4 :h 1 :i 0 10 12 0 0 :p -1 :z 0 :R 63.36 :x 1 2 3 :ID 11;
+#X obj 730 364 context :a ' # = | # = | ' :d 1.5 :e 1 :h 1 :i 0 0 -2
+-6 10 :j 10 0 0 :n ' bass ' :p -1 :D 2 :E 1 :R 63.36 :x 3 4 :ID 12
+;
+#X obj 753 517 context :a ' # = | # = | ' :d 0.5 :e 1 :i 0 -6 -2 0
+10 :n ' bass ' :x 1 2 3 :ID 13;
+#X obj 829 521 context :a ' # = | # = | ' :d 0.5 :e 1 :i -6 -2 -6 0
+10 :n ' bass ' :x 1 2 3 :ID 14;
+#X obj 775 454 context :M 1 :h 1 :i 13 14 0 0 0 :p -1 :z 0 :P 1 :x
+1 2 3 :ID 15;
+#X obj 396 158 context :X 9 :Z 12 :a ' # = | ' :d 1 :e 1 :f 1 :h 1
+:i -4 -14 0 -13 -11 0 -11 0 17 :j 3 4 5 :n ' ks ' :p -1 :P 1 :x 2 4
+5 7 :y 1 2 3 :ID 16;
+#X obj 323 44 scaler locrian c 3;
+#X obj 876 333 throw~ out;
+#X obj 96 591 throw~ out;
+#X obj 847 360 throw~ feed;
+#X obj 76 619 throw~ feed;
+#X obj 359 602 catch~ out;
+#X obj 528 658 throw~ out;
+#X obj 613 478 catch~ feed;
+#X obj 118 181 throw~ out;
+#X obj 98 209 throw~ feed;
+#X obj 529 505 stutter feedback 82 87 50.1187 6.60693 0;
+#X obj 34 425 stutter feedback2 27 24 1 23.9883 1;
+#X obj 118 275 bass~ bass 1.65959 81 22.9087 6;
+#X connect 0 0 3 0;
+#X connect 2 0 16 1;
+#X connect 2 2 16 2;
+#X connect 2 3 10 2;
+#X connect 3 0 30 0;
+#X connect 3 0 31 0;
+#X connect 5 0 23 0;
+#X connect 5 0 25 0;
+#X connect 10 0 12 2;
+#X connect 27 0 1 0;
+#X connect 27 0 1 1;
+#X connect 29 0 32 1;
+#X connect 32 0 28 0;
+#X connect 33 0 24 0;
+#X connect 33 0 26 0;
+#X connect 34 0 33 1;

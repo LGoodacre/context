@@ -1,0 +1,52 @@
+#N canvas 281 81 450 687 10;
+#X text 35 42 [slide] is a modified slider that is useful for setting
+parameters. It has two main advantages: 1 auto state saving 2 easy
+interface with Context. I suggest that we use it widely the patches
+we creaate for the performance.;
+#X text 61 104 [slide] has 7 creation arguments:;
+#X text 86 126 1: the label;
+#X text 86 139 2: an abbreviation / receive channel;
+#X text 85 152 3: the group name / name of the parent patch (this will
+be explained);
+#X text 86 179 4: bottom range value;
+#X text 86 193 5:top range value;
+#X text 85 206 6: linear (0) or exponential (1);
+#X text 85 219 7: clip to top and bottom (0) or not (1);
+#X obj 29 270 slide example a instrument 30 200 0 0;
+#X floatatom 29 382 5 0 0 0 - - -, f 5;
+#X floatatom 77 304 5 0 0 0 - - -, f 5;
+#X text 74 262 This object is "slide example a instrument 30 200 0
+0". The input is always 0-100 \, but the output is defined by the range
+\, in this case 30-200.;
+#X floatatom 83 416 5 0 0 0 - - -, f 5;
+#X text 81 332 The second inlet creates a relative value on top of
+the one set by the input. The relative value is always in percentiles
+(0-100) and is added to whatever the set value is. This is useful because
+you can tell the instrument to play over or below the setting \, creating
+relative envelopes. We'll see this happening in the last example.;
+#X floatatom 70 528 5 0 0 0 - - -, f 5;
+#X msg 70 547 a \$1;
+#X obj 70 569 s instrument-;
+#X text 81 445 You can also access the right inlet by sending a message:
+[abbreviation \, value( to the object [s group-name-]. So the following
+will send to the right inlet \, since slide's abbreviation is defined
+as "a" and its group name as "instrument" in the creation argument.
+;
+#X text 158 571 <-- notice the dash on the end;
+#X text 71 609 There are two more similar objects \, [num] and [tog]
+\, which will also be state saved. These objects don't have a range
+or a relative interface \, they just send out values. Their creation
+arguments are:;
+#X text 117 670 1: label;
+#X text 117 683 2: group name;
+#X text 116 696 3: initial value (will be overwritten if state saving
+is on);
+#X obj 105 725 num freq instrument 440;
+#X text 172 725 <-- "num freq instrument 440";
+#X obj 104 746 tog on/off instrument 1;
+#X text 171 750 <-- "tog on/off instrument 1";
+#X connect 9 0 10 0;
+#X connect 11 0 9 0;
+#X connect 13 0 9 1;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;

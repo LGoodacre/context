@@ -1,0 +1,76 @@
+#N canvas 381 81 831 687 10;
+#X obj 173 251 f-env sine 5.7544 65 50.1187 3 139 0 1 1 0 46;
+#X text 109 16 [f-env] is basically the same as [f-envelope] which
+I sent earlier \, but updated with these new parameter objects. Look
+inside and you will see basically the same thing as the first example
+\, but with the parameters hooked up to control things. Note that the
+group name in every case is set to \$1. This means that you assign
+the group name when you create the [f-env] object \, so the following
+object is called [f-env sine]. Each time you create a new [f-env] object
+\, you'll have to give it a unique name \, otherwise you'll get a multiple
+array error.;
+#X obj 365 214 osc~ 440;
+#X text 419 214 incoming signal;
+#X obj 172 445 clip~ 0 1;
+#X obj 172 467 dac~;
+#X obj 178 178 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 178 198 metro 1000;
+#X obj 133 219 bng 15 250 50 0 empty empty start 17 7 0 10 -262144
+-1 -1;
+#X text 378 362 <--turn preview on to view envelope;
+#X text 376 270 <--- How long the attack burst lasts (ms);
+#X text 376 288 <--- How long the attack burst lasts (only if "auto-off"
+is on), f 64;
+#X text 375 305 <-- Range of the envelop. Careful with these! They
+multiply the signal so could easily blow your speakers. I put a [clip~]
+below just in case., f 72;
+#X obj 272 203 bng 15 250 50 0 empty empty stop 17 7 0 10 -262144 -1
+-1;
+#X text 379 340 <--If not on \, the envelope will wait for a stop signal
+from the second inlet., f 79;
+#X text 377 391 <--resize the view-window if desired;
+#N canvas 799 219 450 300 (subpatch) 0;
+#X obj 156 44 inlet~;
+#X obj 100 102 vsl 18 100 0 1.1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 156 96 snapshot~;
+#X obj 101 50 loadbang;
+#X obj 101 72 metro 50;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X coords 0 -1 1 1 18 105 2 100 100;
+#X restore 346 445 pd;
+#X text 29 443 multiplied outlet -->;
+#X text 367 463 <-- unmultiplied outlet;
+#X text 114 581 Now the fun part: you can send relative messages directly
+to the object to make it play above or below the set line.;
+#X msg 151 626 -30;
+#X msg 182 626 40;
+#X floatatom 213 628 5 0 0 0 - - -, f 5;
+#X obj 169 676 s sine-;
+#X msg 169 654 r \$1;
+#X text 118 712 Note two things: 1: the decay and release parameters
+are set to max out at 100 (this is set in their creation argument inside
+[f-env] so can easily be changed. 2: [f-env] has the object [receive
+\$1-] connected to the start inlet. This means that any object sent
+to the instrument name \, in this case "sine-" \, will start the envelope.
+That's why it plays immediately when you send the "r" message.;
+#X text 117 820 As you have probably guessed \, we can us Context to
+sequence these relative messages. Before we do that \, a bit more context
+theory...;
+#X connect 0 0 4 0;
+#X connect 0 1 16 0;
+#X connect 2 0 0 2;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 13 0 0 1;
+#X connect 20 0 24 0;
+#X connect 21 0 24 0;
+#X connect 22 0 24 0;
+#X connect 24 0 23 0;

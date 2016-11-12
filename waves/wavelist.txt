@@ -1,0 +1,8 @@
+waves/hi-bongo;
+waves/lo-bongo;
+waves/mute-conga;
+waves/open-conga;
+waves/lo-conga;
+waves/tom-1;
+waves/kick-1;
+waves/kick-2;

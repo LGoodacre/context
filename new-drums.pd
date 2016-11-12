@@ -1,0 +1,83 @@
+#N canvas 505 199 1054 659 10;
+#X obj 28 76 context :H 60 :X 17 :Y 6 :Z 31 :a ' u (~ * 10) & d (¬
+- 1 *20) | ' :c 1 :d 2 :e 1 :f 1 :i 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11 :n ' bd ' :x 1 5 9 11 14 :ID 17 6 obj -35 -93 list split 1 11 obj
+-1 -65 ols \$1 inlet outlet-x outlet-y mouse settings cutsom 9 obj
+361 -103 presets \$1 :x :y :d :m 10 obj 0 27 content :x2 0.002 :y1
+0.000933333 :y2 0.0019 4 obj 0 -20 mover 5 connect 0 0 1 0 5 connect
+0 1 2 1 5 connect 0 2 2 2 5 connect 0 3 2 3 5 connect 0 4 2 4 5 connect
+1 1 2 0;
+#X obj 411 188 r~ pitch;
+#X obj 237 76 context :H 62 :X 17 :Y 6 :Z 22 :a ' u (~ * 10) & d (¬
+- 1 *20) | ' :c 1 :d 2 :e 1 :f 1 :i 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+10 :n ' bd ' :x 1 3 5 9 11 13 14 :ID 18 6 obj -35 -93 list split 1
+11 obj -1 -65 ols \$1 inlet outlet-x outlet-y mouse settings cutsom
+9 obj 361 -103 presets \$1 :x :y :d :m 10 obj 0 27 content :x2 0.002
+:y1 0.000933333 :y2 0.0019 4 obj 0 -20 mover 5 connect 0 0 1 0 5 connect
+0 1 2 1 5 connect 0 2 2 2 5 connect 0 3 2 3 5 connect 0 4 2 4 5 connect
+1 1 2 0;
+#X obj 410 214 osc~;
+#X obj 446 76 context :H 63 :X 17 :Y 6 :Z 22 :a ' u (~ * 10) & d (¬
+- 1 *20) | ' :c 1 :d 2 :e 1 :f 1 :i 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11 :n ' bd ' :x 1 2 3 4 5 7 11 14 :ID 19 6 obj -35 -93 list split 1
+11 obj -1 -65 ols \$1 inlet outlet-x outlet-y mouse settings cutsom
+9 obj 361 -103 presets \$1 :x :y :d :m 10 obj 0 27 content :x2 0.002
+:y1 0.000933333 :y2 0.0019 4 obj 0 -20 mover 5 connect 0 0 1 0 5 connect
+0 1 2 1 5 connect 0 2 2 2 5 connect 0 3 2 3 5 connect 0 4 2 4 5 connect
+1 1 2 0;
+#X obj 101 167 context :M 1 :a ' | ' :b ' u (!u + 10) | ' :c 1 :d 2
+:e 1 :f 1 :h 1 :n ' bd ' :p -1 :D 2 :E 1 :R 63.36 :x 1 2 :ID 20;
+#X obj 8 237 2f-env bd pitch 4.16869 32 26.3027 5 356 0 1 1 0 6 3.16228
+8 30.1995 72 3 123 33 529;
+#X obj 38 196 receive bd-;
+#X obj 38 218 print o;
+#X obj 412 378 s~ pitch;
+#X obj 8 378 throw~ out;
+#X obj 705 96 context :X 9 :Z 23 :a ' r (¬ - 1 *20) | ' :c 3 :d 1
+:e 1 :f 1 :h 1 :j 27 14 0 :n ' snare ' :p -1 :R 63.36 :x 3 4 7 :y 1
+:ID 21;
+#N canvas 401 162 450 300 snare 0;
+#X obj 191 248 outlet~;
+#X obj 247 125 noise~;
+#X obj 218 210 bp~ 1200 3;
+#X obj 229 188 bp~ 600 2;
+#X obj 231 163 bp~ 12000 6;
+#X floatatom 321 131 5 0 0 0 - - -, f 5;
+#X obj 315 159 * 2000;
+#X floatatom 315 181 5 0 0 0 - - -, f 5;
+#X connect 1 0 4 0;
+#X connect 1 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 1;
+#X connect 6 0 7 0;
+#X restore 812 312 pd snare;
+#X obj 619 337 f-env snare 1 68 13.1826 8 131 0 1 1 0 30;
+#X obj 820 160 context :X 9 :Z 23 :a ' r (¬ - 1 *20) | ' :c 3 :d 1
+:e 1 :f 1 :j 2 0 0 :n ' snare ' :p -1 :P -1 :x 3 4 5 7 :ID 23;
+#X obj 705 160 context :X 9 :Z 23 :a ' r (¬ - 1 *20) | ' :c 3 :d 1
+:e 1 :f 1 :j 2 0 0 :n ' snare ' :p -1 :P -1 :x 3 7 :ID 22;
+#X obj 820 95 context :X 9 :Z 23 :a ' r (¬ - 1 *20) | ' :c 3 :d 1
+:e 1 :f 1 :h 1 :j 14 15 0 :n ' snare ' :p -1 :P 1 :x 2 3 5 7 :y 1 2
+:ID 27;
+#X obj 707 219 context :X 17 :Z 23 :a ' r (¬ - 1 *20) | ' :c 3 :d
+2 :e 1 :f 1 :j 2 0 0 :n ' snare ' :p -1 :P -1 :x 1 2 3 4 5 7 10 13
+:ID 24;
+#X obj 620 481 throw~ out;
+#X obj 323 456 context :X 8 :Y 5 :d 2 :e 1 :f 1 :i 0 0 0 0 0 0 25 0
+:j 1 0 0 0 :x 8 :ID 25;
+#X obj 349 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 4 5 1;
+#X connect 1 0 3 0;
+#X connect 3 0 6 2;
+#X connect 6 0 10 0;
+#X connect 6 1 9 0;
+#X connect 7 0 8 0;
+#X connect 11 3 5 2;
+#X connect 12 0 13 2;
+#X connect 13 0 18 0;
+#X connect 20 0 19 3;

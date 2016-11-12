@@ -1,0 +1,15 @@
+#N canvas 294 211 632 526 10;
+#X obj 117 109 context :Z 7 :a ' one | two | three | four | last |
+' :b ' aa | bb | cc | last | ' :d 2 :e 5 :f 6 :x 1 2 3 4 5 :y 1 2 3
+:ID 2;
+#X obj 146 202 context :X 10 :Z 13 :a ' *. 2 ' :d 6 :e 1 :z 0 :x 1
+2 3 4 5 6 7 8 :ID 4;
+#X obj 344 245 print o;
+#X obj 344 223 spigot 1;
+#X msg 226 158 :a *.*;
+#X msg 203 142 mmm;
+#X obj 344 201 receive c2-;
+#X connect 3 0 2 0;
+#X connect 4 0 1 5;
+#X connect 5 0 1 5;
+#X connect 6 0 3 0;

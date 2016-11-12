@@ -1,0 +1,52 @@
+#N canvas 378 85 881 687 10;
+#X obj 77 383 f-env snare 100 70 22.9087 8 122 0 1.91 1 0 47;
+#X obj 301 290 noise~;
+#X obj 293 374 bp~ 1200 3;
+#X obj 304 352 bp~ 600 2;
+#X obj 12 159 context :X 17 :Z 23 :a ' r (¬ - 1 *20) \\\; ' :d 2 :j
+2 0 0 :n snare :p -1 :P -1 :x 1 2 4 5 7 9 13 14 16 :y 1 :ID 1;
+#X obj 13 235 context :X 17 :Z 23 :a ' r (¬ - 1 *20) \\\; ' :d 2 :j
+1 0 0 :n snare :p -1 :P -1 :x 1 2 4 5 8 9 11 13 14 16 :y 1 :ID 2;
+#X obj 306 327 bp~ 12000 6;
+#X obj 77 532 cyclone/tanh~;
+#X obj 77 564 dac~;
+#X msg 249 170 \; c-all stop;
+#X obj 233 217 receive snare-;
+#X obj 233 239 spigot;
+#X obj 233 261 print snare;
+#X obj 279 241 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 12 56 Here the ¬ variable judges the distance between the
+beats. The value is then calibrated and prefixed with "r" (outside
+brackets) and sent to "snare-" \, where it is received automatically
+by the release parameter. Add or remove drum beats and the release
+will fill in the gaps. Also \, you can alter the release parameter
+and the whole envelope will follow.;
+#X text 166 532 <--overdrive;
+#X text 310 242 <-- if you want to see the messages;
+#X text 30 614 It still doesn't sound as good as I want it to \, but
+I think that it's mostly a matter of calibrating it correctly. If changing
+the arithmetic in the send message doesn't do enough \, then we can
+also tweak the ranges in the [slide] creation arguments inside [f-env]
+;
+#X text 380 348 Can you make this snare sound any better? I think it's
+just a matter of getting the filters right... However there was just
+a thread on the PD list about how the built in filters are badly defficient
+\, so we might be better off using externals. There are a lot built
+into iemlib \, but I've only just started exploring them.;
+#X msg 108 308 d 70 400;
+#X obj 108 330 s snare-;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 0 2;
+#X connect 3 0 0 2;
+#X connect 6 0 0 2;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 13 0 11 1;
+#X connect 19 0 20 0;
+#X coords 0 687 1 686 190 120 0;

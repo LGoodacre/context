@@ -1,0 +1,27 @@
+#N canvas 563 85 476 687 10;
+#X obj 108 82 context :X 11 :Z 18 :a ' f ((3+5)/4) \\\; ' :d 2 :n ex1
+:x 1 2 3 4 5 6 7 8 9 10 11 :ID 1;
+#X obj 287 112 print out;
+#X text 40 157 The Context message system is very powerful. It can
+simplify arithmetic expressions with more or less the same ability
+as a scientific calculator. Any expression inside brackets will be
+solved \, and you can have multiple levels of brakets (up to 4 or 5
+is safe). Anything outside of brackets is treated as text and ignored.
+;
+#X text 40 246 There is also a series of variables that you can plug
+into the message. For example \, ?10 gives a random number \, maximum
+10;
+#X obj 107 302 context :X 11 :Z 18 :a ' d (?10 + 30) \\\; ' :d 1 :n
+ex1 :x 1 2 3 4 5 6 7 8 9 10 :ID 2;
+#X obj 287 90 receive ex1-;
+#X text 50 560 You can see all the variable in the help menu: MESSAGES->VARIABLES
+;
+#X text 49 599 Also \, read "ADVANCED USE->ID->TAGS to learn how the
+messages are being sent to "receive ex1-";
+#X text 49 388 One variable that is very useful for envelopes is ¬
+(an awkward character that might not be on your keyboard! I'll change
+this soon.). ¬ calculates the distance between the current toggle
+and the next one:;
+#X obj 116 461 context :X 12 :Z 16 :a ' ¬ \\\; ' :d 7 :n ex1 :x 1
+4 5 9 11 :ID 1;
+#X connect 5 0 1 0;

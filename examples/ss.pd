@@ -1,0 +1,30 @@
+#N canvas 444 127 535 627 10;
+#X obj 84 359 dac~;
+#X obj 124 48 context :X 9 :Z 14 :a ' # = | ' :d 1 :h 1 :i -3 -4 -3
+0 -4 0 0 0 1 :j 3 4 0 :n ks :p -1 :R 63.36 :x 1 2 3 5 9 :ID 1;
+#X obj 398 41 scaler major c 3;
+#X obj 132 118 context :X 7 :Z 9 :a ' # = | ' :d 2 :i 0 -1 -2 4 -3
+0 0 :n ks :x 1 2 3 5 :ID 2;
+#X obj 275 74 context :a ' # = | ' :d 1 :i 0 -7 -6 0 0 :n ks :x 2 3
+:ID 3;
+#X msg 291 31 :a # =;
+#X obj 341 146 context :X 9 :Z 8 :a ' # = | ' :d 2 :i 0 -5 0 0 -3 0
+0 0 0 :n ks :x 2 :ID 4;
+#X obj 84 213 receive ks-;
+#X text 74 394 The = variable (not an equals sign) fetches the float
+from the pattern toggles. This makes it especially easy to compose
+melodies using the GUI friendly toggle floats. Note that only negative
+floats will be fetched by messages like this \; positive ones are used
+for connections and won't register in the messages. The negative ones
+aren't really negative--the absolute value is taken. The negative is
+just a way of distinguisging them from the positive. To select a toggle
+float \, double click and scroll up or down.;
+#X text 73 522 The # variable turns a number into a note. This is defined
+by the [scaler] object \, which communicates with all Contexts. You
+can change the arguments of [scaler] to change the scale.;
+#X text 72 579 Sorry \, I haven't done any actual melody design here
+\, just got the thing up and running. It's time for bed!;
+#X obj 84 241 ks2 ks 15.8489 30.18 49 87 83 62.3735 6.30957;
+#X connect 7 0 11 0;
+#X connect 11 0 0 0;
+#X connect 11 0 0 1;
