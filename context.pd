@@ -1,7 +1,7 @@
-#N canvas 65 334 796 419 10;
+#N canvas 65 346 796 419 10;
 #X obj 101 101 cnv 12 48 35 \$0-cpos \$0-cposr 1 5 22 0 8 -128975 -262144
 0;
-#N canvas 315 317 700 432 guts 1;
+#N canvas 307 260 700 432 guts 1;
 #N canvas 591 207 450 543 names 0;
 #X obj 226 366 route bang;
 #X msg 226 387 symbol  ;
@@ -162,7 +162,7 @@ list);
 ;
 #N canvas 170 121 731 596 process 0;
 #X obj 273 38 demux;
-#N canvas 657 143 546 372 delay 0;
+#N canvas 654 147 546 372 delay 0;
 #X obj 50 12 inlet start;
 #X obj 167 103 demux;
 #X msg 292 193 clear;
@@ -1191,9 +1191,9 @@ list);
 #X connect 9 0 4 0;
 #X connect 10 0 4 0;
 #X restore 454 137 pd presets;
-#N canvas 246 50 968 668 settings 0;
-#X msg 753 216 stop;
-#X obj 753 239 s \$0-sl-stop;
+#N canvas 361 100 968 668 settings 1;
+#X msg 759 216 stop;
+#X obj 759 239 s \$0-sl-stop;
 #N canvas 423 196 605 428 sendto 0;
 #X obj 170 119 demux 0 1 2 3;
 #X obj 239 166 s c-all;
@@ -1368,7 +1368,6 @@ list);
 #X connect 40 0 1 0;
 #X connect 40 1 34 0;
 #X restore 281 159 pd hold;
-#X obj 753 192 receive \$0-stop;
 #X text 105 343 L: lin \, N \, Random \, A: all;
 #X text 103 381 L: preset N: blank A: advance;
 #X obj 280 189 ctxfiles/br route :a " s \$0-xmessmode " :b " s \$0-ymessmode
@@ -1387,15 +1386,31 @@ ss \$0 saveo :O osave " :P " s \$0-progb " :Q " s \$0-banksave " :R
 " s \$0-randb " :S " s \$0-patternprep " :T " s \$0-patternapp " :U
 " s \$0-burstprep " :V " s \$0-burstapp " :W " s \$0-wwrap " :X " s
 \$0-xsize-2-in " :Y " s \$0-ysize-2-in " :Z " s \$0-zsize-2-in " settings
-" s \$0-settings " stop " ss \$0 stopme stop stop " hack " s \$0-openme
+" s \$0-settings " stop " ss \$0 stopme stop prestop " hack " s \$0-openme
 " :ID " s \$0-cnumbers " >> " s \$0-shift> " << " s \$0-shift< " ^^
 " s \$0-shift^ " vv " s \$0-shiftv " X> " s \$0-xsize-init " Y^ " s
 \$0-ysize-init " Z> " s \$0-zsize-init " print " s \$0-printme " bump
 " s \$0-bump ";
+#X obj 720 142 receive \$0-prestop;
+#X obj 759 187 t b b;
+#X obj 793 216 s \$0-stop;
+#X obj 720 164 route -;
+#X obj 720 262 t b b f;
+#X obj 720 311 s \$0-overflow;
+#X msg 720 284 1;
+#X msg 747 284 \; c-all stop;
 #X connect 0 0 1 0;
 #X connect 2 0 3 0;
-#X connect 3 0 7 0;
-#X connect 4 0 0 0;
+#X connect 3 0 6 0;
+#X connect 7 0 10 0;
+#X connect 8 0 0 0;
+#X connect 8 1 9 0;
+#X connect 10 0 11 0;
+#X connect 10 1 8 0;
+#X connect 11 0 13 0;
+#X connect 11 1 14 0;
+#X connect 11 2 12 0;
+#X connect 13 0 12 0;
 #X restore 548 206 pd settings;
 #N canvas 291 50 550 685 start 0;
 #X obj 179 86 s \$0-start;
@@ -1735,7 +1750,7 @@ ss \$0 saveo :O osave " :P " s \$0-progb " :Q " s \$0-banksave " :R
 #X connect 32 0 11 0;
 #X connect 32 1 9 0;
 #X restore 379 292 pd position;
-#N canvas 0 55 1276 682 input 0;
+#N canvas 65 394 1276 682 input 1;
 #X msg 28 57 1;
 #X obj 60 94 s \$0-undodec;
 #X obj 277 -253 list trim;
@@ -2086,7 +2101,7 @@ s \$0-progw " #f " s \$0-banksaver " #f " s \$0-randomw " #f " s \$0-wS
 #X connect 69 0 5 0;
 #X connect 69 1 66 0;
 #X restore 545 115 pd input;
-#N canvas 65 144 769 661 messages 1;
+#N canvas 65 107 769 661 messages 0;
 #X obj 411 130 zl iter 1;
 #X obj 178 376 list;
 #N canvas 334 81 531 686 var-messages 0;
