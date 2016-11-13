@@ -1,7 +1,10 @@
-#N canvas 382 154 450 300 10;
+#N canvas 376 162 450 300 10;
 #X obj 187 64 inlet;
 #X obj 186 161 outlet;
 #X obj 187 108 s \$1-;
 #X obj 186 135 receive \$1;
+#X obj 296 155 s \$2-overflow;
+#X obj 296 133 receive \$1-dddEEE&;
 #X connect 0 0 2 0;
 #X connect 3 0 1 0;
+#X connect 5 0 4 0;
