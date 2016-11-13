@@ -1,4 +1,4 @@
-#N canvas 65 85 1301 687 10;
+#N canvas 22 81 1301 687 10;
 #X obj 117 109 context :Z 7 :a ' %> s = | ' :d 8 :i -1 -2 -1 -2 0 :n
 ' ts time ' :x 1 2 3 4 :ID 2;
 #X obj 194 109 context :Z 7 :a ' %> s = | ' :d 8 :i -2 -2 -1 -3 0 :n
@@ -87,13 +87,14 @@ connect 0 2 2 2 5 connect 0 3 2 3 5 connect 0 4 2 4 5 connect 1 1 2
 #X obj 707 439 context :X 17 :Z 23 :a ' r (¬ - 1 *20) | ' :c 3 :d
 2 :j 2 0 0 :n ' snare ' :p -1 :P -1 :x 1 2 3 4 5 7 10 13 :ID 17;
 #X msg 368 71 \; c-all stop;
-#X obj 957 470 context :H 34 :X 9 :Y 5 :Z 12 :a ' | ' :c 6 :d 0.32
-:i 0 0 0 0 0 0 0 0 20 :n ' congas- ' :x 1 :ID 18 6 obj -35 -93 list
-split 1 11 obj -1 -65 ols \$1 inlet outlet-x outlet-y mouse settings
-cutsom 9 obj 361 -103 presets \$1 :x :y :d :m 15 obj 0 19 content :l
-waves/open-conga.wav :x2 0.00032 :y1 0.000128 :y2 0.00032 :y -1 2 5
-obj 47 83 throw~ samples 5 connect 0 1 2 1 5 connect 0 2 2 2 5 connect
-0 3 2 3 5 connect 0 4 2 4 5 connect 1 1 2 0 5 connect 4 0 5 0;
+#X obj 957 470 context :H 38 :X 9 :Y 5 :Z 12 :a ' | ' :c 6 :d 0.32
+:e 1 :f 1 :i 0 0 0 0 0 0 0 0 20 :n ' congas- ' :x 1 :ID 18 6 obj -35
+-93 list split 1 11 obj -1 -65 ols \$1 inlet outlet-x outlet-y mouse
+settings cutsom 9 obj 361 -103 presets \$1 :x :y :d :m 15 obj 0 19
+content :l waves/open-conga.wav :x2 0.00032 :y1 0.000128 :y2 0.00032
+:y -1 2 5 obj 47 83 throw~ samples 5 connect 0 1 2 1 5 connect 0 2
+2 2 5 connect 0 3 2 3 5 connect 0 4 2 4 5 connect 1 1 2 0 5 connect
+4 0 5 0;
 #X obj 503 571 catch~ samples;
 #X obj 958 334 context :M 1 :a ' \\\; \\\; \\\; \\\; ' :b ' (? 4 +
 2) | ' :c 19 :d 0.5 :h 1 :i 19 19 0 21 18 :n ' level ' :p -1 :D 8 :E
@@ -104,13 +105,13 @@ mouse settings cutsom 9 obj 361 -103 presets \$1 :x :y :d :m 16 obj
 0 19 content :l waves/open-conga.wav :x2 0.00032 :y1 0.000128 :y2 0.00032
 :y -1 2 5 5 obj 47 83 throw~ samples 5 connect 0 2 2 2 5 connect 0
 3 2 3 5 connect 0 4 2 4 5 connect 1 1 2 0 5 connect 4 0 5 0;
-#X obj 1074 469 context :H 32 :X 9 :Y 5 :Z 12 :a ' | ' :c 6 :d 0.25
-:i 0 0 0 0 0 0 0 0 18 :n ' congas- ' :ID 20 6 obj -35 -93 list split
-1 11 obj -1 -65 ols \$1 inlet outlet-x outlet-y mouse settings cutsom
-9 obj 361 -103 presets \$1 :x :y :d :m 15 obj 0 19 content :l waves/lo-conga.wav
-:x2 0.00025 :y1 0.0001 :y2 0.00025 :y -1 2 5 obj 47 83 throw~ samples
-5 connect 0 1 2 1 5 connect 0 2 2 2 5 connect 0 3 2 3 5 connect 0 4
-2 4 5 connect 1 1 2 0 5 connect 4 0 5 0;
+#X obj 1074 469 context :H 36 :X 9 :Y 5 :Z 12 :a ' | ' :c 6 :d 0.25
+:e 1 :f 1 :i 0 0 0 0 0 0 0 0 18 :n ' congas- ' :ID 20 6 obj -35 -93
+list split 1 11 obj -1 -65 ols \$1 inlet outlet-x outlet-y mouse settings
+cutsom 9 obj 361 -103 presets \$1 :x :y :d :m 15 obj 0 19 content :l
+waves/lo-conga.wav :x2 0.00025 :y1 0.0001 :y2 0.00025 :y -1 2 5 obj
+47 83 throw~ samples 5 connect 0 1 2 1 5 connect 0 2 2 2 5 connect
+0 3 2 3 5 connect 0 4 2 4 5 connect 1 1 2 0 5 connect 4 0 5 0;
 #X obj 1029 335 context :M 1 :a ' \\\; \\\; \\\; \\\; ' :b ' (? 4 +
 2) | ' :c 19 :d 0.5 :h 1 :i 19 0 21 21 20 :n ' level ' :p -1 :D 8 :E
 1 :R 63.36 :x 1 2 3 4 5 :ID 21;
